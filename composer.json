@@ -15,14 +15,6 @@
     "require": {
         "setasign/fpdf": "1.8.1"
     },
-    "replace": {
-    },
-    "require-dev": {
-    },
-    "conflict": {
-    },
-    "provide": {
-    },
     "autoload": {
         "psr-4": {
             "VanXuan\\PdfTable\\": ""
