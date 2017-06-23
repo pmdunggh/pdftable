@@ -20,5 +20,5 @@
             "VanXuan\\PdfTable\\": ""
         }
     },
-    "minimum-stability": "dev"
+    "minimum-stability": "2.0.0"
 }
