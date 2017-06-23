@@ -3,7 +3,7 @@
     "type": "library",
     "description": "Generate PDF report from HTML template",
     "keywords": ["pdflib","pdftable","html2pdf"],
-    "homepage": "http://symfony.com",
+    "homepage": "http://vanxuan.net/tool/pdftable/",
     "license": "GNU v3.0",
     "authors": [
         {
