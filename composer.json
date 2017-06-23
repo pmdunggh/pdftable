@@ -1,0 +1,30 @@
+{
+    "name": "pmdunggh/pdftable",
+    "type": "library",
+    "description": "Generate PDF report from HTML template",
+    "keywords": ["pdflib","pdftable","html2pdf"],
+    "homepage": "http://symfony.com",
+    "license": "GNU v3.0",
+    "authors": [
+        {
+            "name": "Pham Minh Dung",
+            "email": "pmdung@gmail.com"
+        }
+    ],
+    "require": {
+        "setasign/fpdf": "1.8.1"
+    },
+    "replace": {
+    },
+    "require-dev": {
+    },
+    "conflict": {
+    },
+    "provide": {
+    },
+    "autoload": {
+        "psr-4": {
+            "VanXuan\\PdfTable\\": ""
+        }
+    }
+}
