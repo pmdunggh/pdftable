@@ -181,8 +181,10 @@ class HtmlDocument
     public function addTreeFont(HtmlElement $el, $style)
     {
         $el->style->fontStyle .= " $style";
-        foreach($el->childs as $child)
-            $this->addTreeFont($child, $style);
+        foreach($el->childs as $child){
+            if ($child instanceof HtmlElement)
+                $this->addTreeFont($child, $style);
+        }
     }
 
 	/**
