@@ -1,7 +1,7 @@
 <?php
 namespace VanXuan\PdfTable;
 
-define('FPDF_FONTPATH',__DIR__.'/font');
+define('FPDF_FONTPATH',__DIR__.'/../font');
 
 class Utf8Pdf extends \FPDF{
 	protected $unifontSubset;
