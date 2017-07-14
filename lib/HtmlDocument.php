@@ -494,7 +494,7 @@ class HtmlText extends HtmlNode
 
 	public function __construct($value=null)
 	{
-		$this->value = html_entity_decode($value,null,'utf8');
+		$this->value = html_entity_decode($value,null,'utf-8');
 	}
 }
 class HtmlComment extends HtmlNode
