@@ -266,29 +266,37 @@ class CssClass
 	}
 	public function validFont()
 	{
-		if (!preg_match_all('/"([^"]+)"|([^\s,]+)/', $this->font, $matches))
-			return;
-		$style = $this->fontStyle ? [$this->fontStyle] : [];
-		$SIZE = self::FONTSIZE;
-		foreach($matches[2] as $i=>$f){
-			if ($f==='')
-				$f = $matches[1][$i];
-			if ($f=='bold' ||$f=='italic')
-				$style[] = $f;
-			elseif (preg_match_all('/([\d\.]+)(px|pt|em|%)/',$f,$fm)){
-				$f = $fm[0];
-				$this->fontSize = $f[0];
-				if (count($f)>1)
-					$this->lineHeight = $f[1];
-			}elseif (in_array($f, self::FONTINORGE) || preg_match('/[\d\.]+[^\s]+/',$f))
-				continue;
-			elseif (isset($SIZE[$f]))
-				$this->fontSize = $SIZE[$f];
-			else
-				$this->fontFamily = $f;
+		if (preg_match_all('/"([^"]+)"|([^\s,]+)/', $this->font, $matches)) {
+			$style = $this->fontStyle ? [$this->fontStyle] : [];
+			$SIZE = self::FONTSIZE;
+			foreach ($matches[2] as $i => $f) {
+				if ($f === '')
+					$f = $matches[1][$i];
+				if ($f == 'bold' || $f == 'italic')
+					$style[] = $f;
+				elseif (preg_match_all('/([\d\.]+)(px|pt|em|%)/', $f, $fm)) {
+					$f = $fm[0];
+					$this->fontSize = $f[0];
+					if (count($f) > 1)
+						$this->lineHeight = $f[1];
+				} elseif (in_array($f, self::FONTINORGE) || preg_match('/[\d\.]+[^\s]+/', $f))
+					continue;
+				elseif (isset($SIZE[$f]))
+					$this->fontSize = $SIZE[$f];
+				else
+					$this->fontFamily = $f;
+			}
+			if (count($style))
+				$this->fontStyle = join(' ', $style);
 		}
-		if (count($style))
-			$this->fontStyle = join(' ',$style);
+		if (preg_match_all('/"([^"]+)"|([^\s,]+)/', $this->fontFamily, $matches)){
+			foreach ($matches[2] as $i => $f) {
+				if (in_array($f, self::FONTINORGE) || preg_match('/[\d\.]+[^\s]+/', $f))
+					continue;
+				$this->fontFamily = $f;
+				break;
+			}
+		}
 	}
 	public function validBorder()
 	{
