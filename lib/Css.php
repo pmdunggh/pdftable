@@ -289,8 +289,9 @@ class CssClass
 			if (count($style))
 				$this->fontStyle = join(' ', $style);
 		}
-		if (preg_match_all('/"([^"]+)"|([^\s,]+)/', $this->fontFamily, $matches)){
+		if (preg_match_all('/"([^"]+)"|([^,]+)/', $this->fontFamily, $matches)){
 			foreach ($matches[2] as $i => $f) {
+                $f = trim($f);
 				if (in_array($f, self::FONTINORGE) || preg_match('/[\d\.]+[^\s]+/', $f))
 					continue;
 				$this->fontFamily = $f;

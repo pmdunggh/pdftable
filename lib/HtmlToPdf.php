@@ -3,7 +3,8 @@ namespace VanXuan\PdfTable;
 
 class HtmlToPdf extends Utf8Pdf
 {
-	const SBREAK = 1;
+    const VERSION = '2.0.1';
+    const SBREAK = 1;
 	const HBREAK = 2;
 	const FONTSIZE = 14;
 	const LINEHEIGHT = 1.2; //FONTSIZE * 1.2
@@ -19,6 +20,11 @@ class HtmlToPdf extends Utf8Pdf
 	protected $SpacingAfter;
 	protected $LineStyle;
 	protected $LineStyleF;
+
+	private $defaultFontFamily;
+	private $defaultFontStyle;
+	private $defaultFontSize;
+	private $defaultLineHeight;
 
 	public function __construct($orientation = 'P', $unit = 'pt', $format = 'A4')
 	{
@@ -836,10 +842,10 @@ class HtmlToPdf extends Utf8Pdf
 	}
 	function setFont($family, $style='', $size=0, $default=false)
 	{
-		parent::SetFont($family, $style, $size);
+		parent::SetFont($family?$family:$this->defaultFontFamily, $style, $size);
 		if ($default){
-			$this->defaultFontFamily = $family;
-			$this->defaultFontSize = $size;
+			if ($family) $this->defaultFontFamily = $family;
+			if ($size) $this->defaultFontSize = $size;
 			$this->defaultFontStyle = $style;
 		}
 	}
@@ -999,7 +1005,7 @@ class HtmlToPdf extends Utf8Pdf
 	function _putinfo()
 	{
 		$this->_out('/Producer ' . $this->_textstring('PDFTable ' .
-						PDFTABLE_VERSION . ' based on FPDF ' . FPDF_VERSION));
+						self::VERSION . ' based on FPDF ' . FPDF_VERSION));
 		if (!empty($this->title))
 			$this->_out('/Title ' . $this->_textstring($this->title));
 		if (!empty($this->subject))
