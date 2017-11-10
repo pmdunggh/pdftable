@@ -15,6 +15,7 @@ class PdfTable extends HtmlToPdf{
 		$this->setPageMargins(30,20);
 		$this->SetAuthor('Pham Minh Dung');
 		$this->AliasNbPages();
+		$this->setFont('Times New Roman','','12', true);
 	}
 
 	public function Footer()
