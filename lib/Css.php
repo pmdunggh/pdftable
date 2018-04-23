@@ -427,7 +427,7 @@ class Css
 				throw new CssException('Wrong selector in '.$cls);
 
 			$selectors = $atts[1][0];
-			preg_match_all('/\s*([^\:\;\s]+)\s*\:\s*([^\;]+)\;/',$atts[2][0], $properties);
+			preg_match_all('/\s*([^:;\s]+)\s*:\s*([^;]+)(;|$)/',$atts[2][0], $properties);
 			if (empty($properties))
 				throw new CssException('Wrong property in '.$cls);
 
