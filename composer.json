@@ -5,7 +5,7 @@
     "description": "Generate PDF report from HTML template",
     "keywords": ["pdflib","pdftable","html2pdf"],
     "homepage": "http://vanxuan.net/tool/pdftable/",
-    "license": "GNU v3.0",
+    "license": "GPL-3.0-only",
     "authors": [
         {
             "name": "Pham Minh Dung",
