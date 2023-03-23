@@ -17,7 +17,7 @@
     },
     "autoload": {
         "psr-4": {
-            "VanXuan\\PdfTable\\": ""
+            "VanXuan\\PdfTable\\": "lib"
         }
     },
     "minimum-stability": "dev"
